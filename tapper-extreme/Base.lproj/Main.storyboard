@@ -27,15 +27,6 @@
                                     <constraint firstAttribute="height" constant="74" id="fth-Oi-syc"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVg-S3-y9a" userLabel="PlayBtn">
-                                <rect key="frame" x="176" y="371" width="249" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="GiL-03-uv4"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="111" id="Mou-0C-J8v"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="249" id="g6U-d9-PGa"/>
-                                </constraints>
-                                <state key="normal" image="playbtn"/>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How many taps to win?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gd6-Kk-gP3" userLabel="tapsTxt">
                                 <rect key="frame" x="176" y="294" width="249" height="30"/>
                                 <constraints>
@@ -45,12 +36,6 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1,000 Taps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLJ-Zn-Ba5" userLabel="TapsLbl">
-                                <rect key="frame" x="186" y="294" width="228" height="97"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="41"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwH-Pm-Q9a" userLabel="CoinBtn">
                                 <rect key="frame" x="229" y="118" width="136" height="133"/>
                                 <constraints>
@@ -58,6 +43,24 @@
                                     <constraint firstAttribute="width" constant="136" id="vwK-cd-dlK"/>
                                 </constraints>
                                 <state key="normal" image="coin"/>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1,000 Taps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLJ-Zn-Ba5" userLabel="TapsLbl">
+                                <rect key="frame" x="186" y="294" width="228" height="97"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="41"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVg-S3-y9a" userLabel="PlayBtn">
+                                <rect key="frame" x="176" y="371" width="249" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="GiL-03-uv4"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="111" id="Mou-0C-J8v"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="249" id="g6U-d9-PGa"/>
+                                </constraints>
+                                <state key="normal" image="playbtn"/>
+                                <connections>
+                                    <action selector="onPlayBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y4Z-wx-2bm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -87,6 +90,13 @@
                             <constraint firstItem="eY7-ND-91i" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="42" id="zFP-7X-Qij"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="howManyTapsTXT" destination="gd6-Kk-gP3" id="6NM-Pf-QlC"/>
+                        <outlet property="logoImg" destination="eY7-ND-91i" id="Bhc-DW-so9"/>
+                        <outlet property="playBtn" destination="cVg-S3-y9a" id="3zm-NX-gje"/>
+                        <outlet property="tapBtn" destination="DwH-Pm-Q9a" id="2hy-Wu-pxq"/>
+                        <outlet property="tapsLbl" destination="XLJ-Zn-Ba5" id="ISc-uU-ttT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
