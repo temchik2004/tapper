@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var maxTaps: UInt = 0
+    var currentTaps: UInt = 0
+    
     @IBOutlet weak var logoImg: UIImageView!
     @IBOutlet weak var howManyTapsTXT: UITextField!
     @IBOutlet weak var playBtn: UIButton!
@@ -18,14 +21,52 @@ class ViewController: UIViewController {
     @IBOutlet weak var tapsLbl: UILabel!
     
     @IBAction func onPlayBtnPressed(sender: UIButton!) {
-        logoImg.hidden = true
-        playBtn.hidden = true
-        howManyTapsTXT.hidden = true
         
-        tapBtn.hidden = false
-        tapsLbl.hidden = false
+        if howManyTapsTXT.text != nil && howManyTapsTXT.text != "" {
+            
+            logoImg.hidden = true
+            playBtn.hidden = true
+            howManyTapsTXT.hidden = true
+            
+            tapBtn.hidden = false
+            tapsLbl.hidden = false
+            
+            maxTaps = UInt(howManyTapsTXT.text!)!
+            currentTaps = 0
+            
+            updateTabsLbl()
+        }
     }
     
+    @IBAction func onCoinTapped(sender: UIButton!){
+        ++currentTaps
+        updateTabsLbl()
+        if isGameOver(){
+            restartGame()
+        }
+
+    }
+    
+    func isGameOver() -> Bool {
+        return currentTaps >= maxTaps
+    }
+    
+    func updateTabsLbl() {
+        tapsLbl.text = "\(currentTaps) Taps"
+    }
+    
+    func restartGame() {
+        maxTaps = 0
+        howManyTapsTXT.text = ""
+        
+        
+        logoImg.hidden = false
+        playBtn.hidden = false
+        howManyTapsTXT.hidden = false
+        
+        tapBtn.hidden = true
+        tapsLbl.hidden = true
+    }
     
 }
 
